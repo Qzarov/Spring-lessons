@@ -1,19 +1,19 @@
-package ru.alishev.springcourse;
+package ru.qzarov.springcourse;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
- * @author Neil Alishev
+ * @author Qzarov
  */
 public class TestSpring {
     public static void main(String[] args) {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
-                "applicationContext.xml"
+            "applicationContext.xml"
         );
 
-        TestBean testBean = context.getBean("testBean", TestBean.class);
+        TestBean test_bean = context.getBean("testBean", TestBean.class);
 
-        System.out.println(testBean.getName());
+        System.out.println(test_bean.getName());
 
         context.close();
     }

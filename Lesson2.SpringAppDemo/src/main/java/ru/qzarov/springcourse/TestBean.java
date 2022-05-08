@@ -1,7 +1,7 @@
-package ru.alishev.springcourse;
+package ru.qzarov.springcourse;
 
 /**
- * @author Neil Alishev
+ * @author Qzarov
  */
 public class TestBean {
     private String name;
