@@ -13,7 +13,10 @@
 
     <bean id="musicPlayer"
           class="ru.qzarov.springcourse.MusicPlayer">
-        <constructor-arg ref="musicBean"/>
+        <property name="music" ref="musicBean"/>
+        
+        <property name="name" value="I love, mom"/>
+        <property name="volume" value="69"/>
     </bean>
 
 </beans>
