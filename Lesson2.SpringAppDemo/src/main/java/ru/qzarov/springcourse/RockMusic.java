@@ -1,11 +1,14 @@
 package ru.qzarov.springcourse;
 
+import org.springframework.stereotype.Component;
+
 /**
  * @author Qzarov
  */
+@Component("someRockMusic")
 public class RockMusic implements Music {
     @Override
     public String getSong() {
-        return "Defence of Moscow";
+        return "Sabaton - Defence of Moscow";
     }
 }
