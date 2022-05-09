@@ -6,6 +6,6 @@ package ru.qzarov.springcourse;
 public class RockMusic implements Music {
     @Override
     public String getSong() {
-        return "Defence of Moscow";
+        return "Sabaton - Defence of Moscow";
     }
 }

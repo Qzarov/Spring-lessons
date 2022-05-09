@@ -3,9 +3,9 @@ package ru.qzarov.springcourse;
 /**
  * @author Qzarov
  */
-public class ClassicalMusic implements Music {
+public class RapMusic implements Music {
     @Override
     public String getSong() {
-        return "Tchaikovskiy - Swan's Lake";
+        return "Anacondaz - Rainbow";
     }
 }
