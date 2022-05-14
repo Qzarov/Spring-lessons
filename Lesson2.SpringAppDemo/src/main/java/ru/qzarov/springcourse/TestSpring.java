@@ -1,24 +1,36 @@
 package ru.qzarov.springcourse;
 
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
  * @author Qzarov
  */
 public class TestSpring {
     public static void main(String[] args) {
-        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(
-            SpringConfig.class
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
+                "applicationContext.xml"
         );
 
         MusicPlayer musicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
 
-        System.out.println(musicPlayer.getName());
-        System.out.println(musicPlayer.getVolume());
-
-        ClassicalMusic classicalMusic = context.getBean("classicalMusic", ClassicalMusic.class);
-        classicalMusic.getSong();
+        musicPlayer.playMusic(MusicGenre.CLASSICAL);
+        musicPlayer.playMusic(MusicGenre.ROCK);
 
         context.close();
     }
 }
+
+
+/*
+Homework:
+- Create a list of 3 songs dor ClassicalMusic and 3 for RockMusic
+- Music player have to integrate ClassicalMusic and RockMusic Beans
+- Create enum class: CLASSICAL and ROCK
+- playMusic() should play music depending on the value of enum class
+- Playing sond should be random
+
+
+
+
+
+*/

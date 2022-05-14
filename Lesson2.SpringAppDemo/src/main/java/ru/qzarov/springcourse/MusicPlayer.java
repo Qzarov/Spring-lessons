@@ -1,36 +1,36 @@
 package ru.qzarov.springcourse;
 
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.beans.factory.annotation.Value;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import java.util.Random;
 
 /**
  * @author Qzarov
  */
+@Component
 public class MusicPlayer {
-    @Value("${musicPlayer.name}")
-    private String name;
+    private ClassicalMusic classicalMusic;
+    private RockMusic rockMusic;
 
-    @Value("${musicPlayer.volume}")
-    private int volume;
-    
-    public String getName() {
-        return name;
+    @Autowired
+    public MusicPlayer (ClassicalMusic classicalMusic, RockMusic rockMusic) {
+        this.classicalMusic = classicalMusic;
+        this.rockMusic = rockMusic;
     }
 
-    public int getVolume() {
-        return volume;
-    }
+    public void playMusic(MusicGenre genre) {
+        Random random = new Random();
 
-    private Music music1;
-    private Music music2;
+        // случайное целое число между 0 и 2
+        int randomNumber = random.nextInt(3);
 
-    public MusicPlayer (@Qualifier("classicalMusic") Music music1, 
-                        @Qualifier("rockMusic") Music music2) {
-        this.music1 = music1;
-        this.music2 = music2;
-    }
-
-    public String playMusic() {
-        return "Playing: " + music1.getSong() + "; next: " + music2.getSong();
+        if (genre == MusicGenre.CLASSICAL) {
+            // случайная классическая песня
+            System.out.println(classicalMusic.getSongs().get(randomNumber));
+        } else {
+            // случайная рок песня
+            System.out.println(rockMusic.getSongs().get(randomNumber));
+        }
     }
 }

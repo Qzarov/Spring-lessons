@@ -1,8 +1,10 @@
 package ru.qzarov.springcourse;
 
+import java.util.List;
+
 /**
  * @author Qzarov
  */
 public interface Music {
-    String getSong();
+    List<String> getSongs();
 }
